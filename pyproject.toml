@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "query_tokenizer"
+description = "Tokenizes strings into queries"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["tokenization"]
+license = {text = "BSD 3-Clause License"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+]
+
+dynamic = ["version"]
+
+[project.scripts]
+query_tokenizer = "query_tokenizer.cli:main"
+
+[project.optional-dependencies]
+tests = [
+  'black==22.12.0',
+]
