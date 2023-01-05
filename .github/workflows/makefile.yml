@@ -1,0 +1,29 @@
+name: Makefile CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: virtualenv
+      run: pip install virtualenv
+    - name: init
+      run: make init
+    - name: test
+      run: make test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: virtualenv
+      run: pip install virtualenv
+    - name: init
+      run: make init
+    - name: lint
+      run: make lint
+    - name: fail if there are changes
+      run: git diff-index --quiet HEAD
